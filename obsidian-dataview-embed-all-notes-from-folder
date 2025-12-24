@@ -1,0 +1,11 @@
+```dataviewjs
+// Collects and displays the full contents of all notes from the specified folder.
+// ⚠️ IMPORTANT: The page with this code must NOT be located within the same folder,
+// otherwise Obsidian may crash due to recursive loading.
+// Replace "YOUR_FOLDER" with the path to your folder, for example: "Quotes" or "Projects/Drafts"
+
+for (let page of dv.pages('"YOUR_FOLDER"')) {
+    dv.header(3, page.file.link);
+    dv.paragraph(await dv.io.load(page.file.path));
+}
+```
